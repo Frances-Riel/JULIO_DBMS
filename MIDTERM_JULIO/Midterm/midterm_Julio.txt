@@ -1,0 +1,171 @@
+TEST 1
+
+CREATE DATABASE Midterm_Julio USE
+    Midterm_Julio;
+CREATE TABLE Student(
+    Student_No VARCHAR(50) PRIMARY KEY,
+    Fname VARCHAR(50),
+    Lname VARCHAR(50),
+    Gender ENUM('F''M'),
+    Major VARCHAR(50),
+    Home_Address VARCHAR(100)
+); CREATE TABLE Subject(
+    SubjectCode VARCHAR(20) PRIMARY KEY,
+    SubjectDescription VARCHAR(50)
+); CREATE TABLE Grade(
+    Student_No VARCHAR(50),
+    SubjectCode VARCHAR(20),
+    Grade DECIMAL(4, 2),
+    CONSTRAINT Student_NoFK FOREIGN KEY(Student_No) REFERENCES Student(Student_No),
+    CONSTRAINT SubjectCodeFK FOREIGN KEY(SubjectCode) REFERENCES SUBJECT(SubjectCode)
+);
+
+
+INSERT INTO Subject(
+    SubjectCode,
+    SubjectDescription
+)
+VALUES ("Chem 123", "Chemistry"), ("Math 122", "Trigonometry"), ("Math 123", "Algebra");
+
+INSERT INTO Grade(Student_No, SubjectCode, Grade)
+VALUES
+("S_101", "Chem 123", 2.00),("S_101", "Math 122", 1.00),("S_101", "Math 123", 1.50),
+("S_102", "Chem 123", 1.75),("S_102", "Math 122", 1.25),("S_102", "Math 123", 1.50),
+("S_103", "Chem 123", 2.00),("S_103", "Math 122", 1.75),("S_103", "Math 123", 1.25),
+("S_104", "Chem 123", 1.25),("S_104", "Math 122", 2.25),("S_104", "Math 123", 2.50),
+("S_105", "Chem 123", 1.00),("S_105", "Math 122", 1.25),("S_105", "Math 123", 2.50),
+("S_106", "Chem 123", 1.25),("S_106", "Math 122", 1.50),("S_106", "Math 123", 1.75);
+
+
+
+INSERT INTO student(
+    Student_No,
+    Fname,
+    Lname,
+    Gender,
+    Major,
+    Home_Address
+)
+VALUES(
+    S_101,
+    "Ana",
+    "Cruz",
+    "F",
+    "ECE",
+    "Malolos, Bulacan"
+),(
+    S_102,
+    "Hazel",
+    "Ponce",
+    "F",
+    "COE",
+    "Plaridel, Bulacan"
+),(
+    S_103,
+    "Cristov",
+    "Concio",
+    "M",
+    "ECE",
+    "Malolos, Bulacan"
+),(
+    S_104,
+    "Aris",
+    "Clavio",
+    "M",
+    "COE",
+    "Pulilan, Bulacan"
+),(
+    S_105,
+    "Honey",
+    "Pelayo",
+    "F",
+    "COE",
+    "Plaridel, Bulacan"
+),(
+    S_106,
+    "Carrie",
+    "Abao",
+    "F",
+    "COE",
+    "Pulinan, Bulacan"
+);
+
+
+Test 2:
+
+Artist Table:
+Artist ID (Primary Key)
+Name
+Pen Name
+
+Customer Table:
+Customer ID (Primary Key)
+Name
+Address
+
+Sales Associate Table:
+Associate ID (Primary Key)
+Name
+Commission Rate
+
+Artwork Table:
+Artwork ID (Primary Key)
+Title
+Artist ID (Foreign Key)
+Type (e.g., Sculpture, Painting)
+Cost
+
+Sales Table:
+Sale ID (Primary Key)
+Artwork ID (Foreign Key)
+Customer ID (Foreign Key)
+Sales Associate ID (Foreign Key)
+Sale Date
+Selling Price
+Tax
+
+CREATE TABLE Artist (
+    ArtistID INT PRIMARY KEY,
+    Name VARCHAR(100),
+    PenName VARCHAR(100)
+);
+
+
+CREATE TABLE Customer (
+    CustomerID INT PRIMARY KEY,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    Address VARCHAR(100)
+);
+
+
+CREATE TABLE SalesAssociate (
+    AssociateID INT PRIMARY KEY,
+    Name VARCHAR(100),
+    CommissionRate DECIMAL(5, 2)
+);
+
+
+CREATE TABLE Artwork (
+    ArtworkID INT PRIMARY KEY,
+    Title VARCHAR(100),
+    ArtistID INT,
+    Type VARCHAR(50),
+    Cost DECIMAL(10, 2),
+    CONSTRAINT FKArtistID FOREIGN KEY (ArtistID) REFERENCES Artist(ArtistID)
+);
+
+CREATE TABLE Sales (
+    SaleID INT PRIMARY KEY,
+    ArtworkID INT,
+    CustomerID INT,
+    AssociateID INT,
+    SaleDate DATE,
+    SellingPrice DECIMAL(10, 2),
+    Tax DECIMAL(10, 2),
+    CONSTRAINT FKArtID FOREIGN KEY (ArtworkID) REFERENCES Artwork(ArtworkID),
+    CONSTRAINT FKCustID FOREIGN KEY (CustomerID) REFERENCES Customer(CustomerID),
+    CONSTRAINT FKAssoID FOREIGN KEY (AssociateID) REFERENCES SalesAssociate(AssociateID)
+);
+
+
