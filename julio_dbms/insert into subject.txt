@@ -1,0 +1,6 @@
+INSERT INTO SUBJECT(
+    SubjectCode,
+    SubjectDescription
+)
+VALUES("CHEM 123", "Chemistry"),("MATH 122", "Trigonometry"),("MATH 123", "Algebra");
+

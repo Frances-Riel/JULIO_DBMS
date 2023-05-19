@@ -1,0 +1,51 @@
+INSERT INTO student(
+    Student_No,
+    Fname,
+    Lname,
+    Gender,
+    Major,
+    Home_Address
+)
+VALUES(
+    "S_101",
+    "Ana",
+    "Cruz",
+    "F",
+    "ECE",
+    "Malolos, Bulacan"
+),(
+    "S_102",
+    "Hazel",
+    "Ponce",
+    "F",
+    "COE",
+    "Plaridel, Bulacan"
+),(
+    "S_103",
+    "Cristov",
+    "Concio",
+    "M",
+    "ECE",
+    "Malolos, Bulacan"
+),(
+    "S_104",
+    "Aris",
+    "Clavio",
+    "M",
+    "COE",
+    "Pulilan, Bulacan"
+),(
+    "S_105",
+    "Honey",
+    "Pelayo",
+    "F",
+    "COE",
+    "Plaridel, Bulacan"
+),(
+    "S_106",
+    "Carrie",
+    "Abao",
+    "F",
+    "COE",
+    "Pulinan, Bulacan"
+);

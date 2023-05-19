@@ -1,0 +1,10 @@
+SELECT CONCAT(STUDENT.FName, ' ', student.LName) AS Fullname,
+student.Gender, 
+student.Home_Address, 
+Grade.SubjectDescription, 
+Grade.Grade
+
+FROM student
+
+INNER JOIN Grade ON student.Student_No = GRADE.Student_No
+WHERE student.Major = 'COE';

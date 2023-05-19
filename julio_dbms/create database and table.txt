@@ -1,0 +1,19 @@
+CREATE DATABASE Julio_LongTest; USE
+    Julio_LongTest;
+CREATE TABLE Student(
+    Student_No VARCHAR(50) PRIMARY KEY,
+    Fname VARCHAR(50),
+    Lname VARCHAR(50),
+    Gender ENUM('F''M'),
+    Major VARCHAR(50),
+    Home_Address VARCHAR(100)
+); CREATE TABLE SUBJECT(
+    SubjectCode VARCHAR(20) PRIMARY KEY,
+    SubjectDescription VARCHAR(50)
+); CREATE TABLE Grade(
+    Student_No VARCHAR(50),
+    SubjectCode VARCHAR(20),
+    Grade DECIMAL(4, 2),
+    CONSTRAINT Student_NoFK FOREIGN KEY(Student_No) REFERENCES Student(Student_No),
+    CONSTRAINT SubjectCodeFK FOREIGN KEY(SubjectCode) REFERENCES SUBJECT(SubjectCode)
+);
