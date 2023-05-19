@@ -1,7 +1,7 @@
 SELECT CONCAT(STUDENT.FName, ' ', student.LName) AS Fullname,
 student.Gender, 
 student.Home_Address, 
-Grade.SubjectDescription, 
+Grade.SubjectCode, 
 Grade.Grade
 
 FROM student
